@@ -1,8 +1,12 @@
+import MenuResto from "./MenuResto.jsx";
+import Header from "./Header.jsx";
+
 function App() {
   const nama = "Rifai Abdurrohman";
   return (
     <>
-      <h1>Hello {nama} ReactJS</h1>
+      <Header />
+      <MenuResto />
     </>
   );
 }
