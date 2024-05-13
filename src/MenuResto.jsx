@@ -7,16 +7,17 @@ function MenuResto() {
     borderRadius: "10px",
     color: "#fff",
   };
+
+  const isMakanan = true;
+
   return (
     <div style={styleMenuItem}>
       <div>
         <b> Nama Menu : </b>
         <em> Nasi Bakar 🍘</em>
       </div>
-      <div>
-        <b> Harga : </b>
-        <em> Rp. 20.000</em>
-      </div>
+
+      {isMakanan == true && <div>Tipe : Makanan</div>}
     </div>
   );
 }
