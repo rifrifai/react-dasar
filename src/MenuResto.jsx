@@ -6,19 +6,31 @@ function MenuResto() {
     padding: "10px",
     borderRadius: "10px",
     color: "#fff",
+    marginBottom: "5px",
   };
 
-  const isMakanan = true;
+  // const isMakanan = true;
+  const menu = [
+    { nama: "Nasi Bakar 🍘", harga: "Rp.30.000" },
+    { nama: "Mie Ayam 🍜", harga: "Rp. 25.000" },
+    { nama: "Ayam Goreng 🍗", harga: "Rp. 50.000" },
+  ];
 
   return (
-    <div style={styleMenuItem}>
-      <div>
-        <b> Nama Menu : </b>
-        <em> Nasi Bakar 🍘</em>
-      </div>
+    <>
+      {menu.map((item, index) => {
+        return (
+          <div style={styleMenuItem} key={index}>
+            <div>
+              <b> {item.nama} </b>
+              <em> {item.harga}</em>
+            </div>
+          </div>
+        );
+      })}
+    </>
 
-      {isMakanan == true && <div>Tipe : Makanan</div>}
-    </div>
+    // {/* {isMakanan == true && <div>Tipe : Makanan</div>} */}
   );
 }
 
