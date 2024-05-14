@@ -4,7 +4,7 @@
 // import Button from "./Button";
 // import Tombol from "./Tombol";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useCallback } from "react";
 import ChildComponent from "./ChildComponent";
 
 function App() {
@@ -12,7 +12,8 @@ function App() {
   const [subsCounter, setSubsCounter] = useState(0);
   const [name, setName] = useState("Rif Technology");
 
-  function handlerName() {
+  // useCallback(fungsi(), [dependecies])
+  const handlerName = useCallback(() => {
     let compName = "";
     if (name == "Rif Technology") {
       compName = "Tyas Tech";
@@ -21,7 +22,7 @@ function App() {
     }
     setName(compName);
     console.info(`set name run ${name}`);
-  }
+  }, [name]);
 
   // function pesanLike() {
   //   console.info(`Pesan Like Rendered`);
@@ -44,8 +45,8 @@ function App() {
         </button>
       </p>
 
-      <ChildComponent name={name} />
-      <button onClick={handlerName}>Change Company</button>
+      <ChildComponent name={name} aksi={handlerName} />
+      {/* <button onClick={handlerName}>Change Company</button> */}
 
       {/* <Tombol /> */}
       {/* <Button /> */}

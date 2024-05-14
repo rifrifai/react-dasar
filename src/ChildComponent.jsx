@@ -4,6 +4,7 @@ function ChildComponent(props) {
   return (
     <>
       <h3>Company Name : {props.name}</h3>
+      <button onClick={props.aksi}>Change Company</button>
     </>
   );
 }
