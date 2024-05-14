@@ -1,12 +1,16 @@
 // import MenuResto from "./MenuResto.jsx";
 // import Header from "./Header.jsx";
 // import Mood from "./Mood";
-import Button from "./Button";
+// import Button from "./Button";
+
+import Tombol from "./Tombol";
 
 function App() {
   return (
     <>
-      <Button />
+      <Tombol />
+
+      {/* <Button /> */}
 
       {/* <Mood hari="Senin" mood="😔" />
       <Mood hari="Selasa" mood="😂" />
