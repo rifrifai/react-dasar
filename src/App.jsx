@@ -1,28 +1,51 @@
-import { useRef } from "react";
+import { useContext, createContext, useState } from "react";
 
-function App() {
-  const message = useRef(null);
-  const displayMessage = useRef(null);
-
-  function clickHandler() {
-    console.info(message.current.value);
-    displayMessage.current.innerHTML = message.current.value;
-
-    // styling
-    displayMessage.current.style.padding = "5px";
-    displayMessage.current.style.marginTop = "5px";
-    displayMessage.current.style.backgroundColor = "#333";
-    displayMessage.current.style.color = "#eee";
-  }
+function Child1() {
+  const data = useContext(context);
   return (
     <>
-      <div>
-        <input type="text" ref={message} placeholder="Send Your Message" />
-      </div>
-      <div>
-        <button onClick={clickHandler}>Click Me! 👆</button>
-      </div>
-      <div ref={displayMessage}></div>
+      <div>Child 1: {data.nama}</div>
+      <Child2 />
+    </>
+  );
+}
+
+function Child2() {
+  const data = useContext(context);
+  return (
+    <>
+      <div>Child 2: {data.nama}</div>
+      <Child3 />
+    </>
+  );
+}
+
+function Child3() {
+  const data = useContext(context);
+  function clickHandler() {
+    if (data.nama == "Tyas Diah") {
+      data.setNama("Rifai Junior");
+    } else {
+      data.setNama("Tyas Diah");
+    }
+  }
+
+  return (
+    <>
+      Hi {data.nama} and your age is {data.umur}, by Child3
+      <button onClick={clickHandler}>change name :</button>
+    </>
+  );
+}
+
+const context = createContext();
+function App() {
+  const [nama, setNama] = useState("Tyas Diah");
+  return (
+    <>
+      <context.Provider value={{ nama, setNama, umur: 23 }}>
+        <Child1 name="Tyas" />
+      </context.Provider>
     </>
   );
 }
