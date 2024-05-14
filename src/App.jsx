@@ -5,31 +5,47 @@
 // import Tombol from "./Tombol";
 
 import { useState, useMemo } from "react";
+import ChildComponent from "./ChildComponent";
 
 function App() {
   const [likeCounter, setLikeCounter] = useState(0);
   const [subsCounter, setSubsCounter] = useState(0);
+  const [name, setName] = useState("Rif Technology");
 
-  function pesanLike() {
-    console.info(`Pesan Like Rendered`);
-    return likeCounter < 10 ? "Like < 10" : "Like Banyak";
+  function handlerName() {
+    let compName = "";
+    if (name == "Rif Technology") {
+      compName = "Tyas Tech";
+    } else {
+      compName = "Rif Technology";
+    }
+    setName(compName);
+    console.info(`set name run ${name}`);
   }
 
+  // function pesanLike() {
+  //   console.info(`Pesan Like Rendered`);
+  //   return likeCounter < 10 ? "Like < 10" : "Like Banyak";
+  // }
+
   // const displayPesanLike = pesanLike();
-  const displayPesanLike = useMemo(() => pesanLike(), [likeCounter]);
+  // const displayPesanLike = useMemo(() => pesanLike(), [likeCounter]);
   return (
     <>
       <p>
         <button onClick={() => setLikeCounter(likeCounter + 1)}>
           {likeCounter} Like : 👍
         </button>{" "}
-        {displayPesanLike}
+        {/* {displayPesanLike} */}
       </p>
       <p>
         <button onClick={() => setSubsCounter(subsCounter + 1)}>
           {subsCounter} Subscribe 📽️
         </button>
       </p>
+
+      <ChildComponent name={name} />
+      <button onClick={handlerName}>Change Company</button>
 
       {/* <Tombol /> */}
       {/* <Button /> */}
