@@ -22,8 +22,8 @@ function MenuResto() {
         return (
           <div style={styleMenuItem} key={index}>
             <div>
-              <b> {item.nama} </b>
-              <em> {item.harga}</em>
+              <b>Menu : {item.nama} </b>
+              <em>Harga : {item.harga}</em>
             </div>
           </div>
         );
