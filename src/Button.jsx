@@ -5,7 +5,7 @@ function Button() {
   const [counter, setCounter] = useState(0);
 
   let newCounter = 0;
-  function clickHandler(nama) {
+  function clickHandler() {
     newCounter = counter + 1;
     console.info(`Saya diKlik ${newCounter} kali`);
     setCounter(newCounter);
