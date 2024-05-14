@@ -1,7 +1,9 @@
-function Mood(props) {
+// function Mood(props) {
+// dibawah ini menggunakan destructuring
+function Mood({ hari, mood }) {
   return (
     <div>
-      Hari : {props.hari}/ Mood : {props.mood}
+      Hari : {hari}/ Mood : {mood}
     </div>
   );
 }
